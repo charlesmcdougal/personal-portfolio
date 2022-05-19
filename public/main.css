@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px; 
+    --main-color: rgb(23, 40, 67);
+    --main-color-light: rgb(247, 240, 235);
+    --accent-color-1: rgb(234, 89, 70);
+    --accent-color-2: rgb(240, 144, 71);
+    --accent-color-3: rgb(235, 186, 82);
+    --accent-color-4: rgb(13, 152, 172);
+    background-color: var(--main-color);
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    z-index: 20;
+}
+
+nav ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 20px 0px;
+    padding: 0px;
+}
+
+nav li {
+    display: inline;
+    font-weight: 500;
+    color: var(--main-color-light);
+    padding: 0 5rem;
+}
+h1 {
+    position: absolute;
+    margin: 0px;
+    top: 50vh;
+    transform:translateY(-50%);
+    text-align: center;
+    font-size: clamp(1rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--main-color-light);
+}
+
+p {
+    color: var(--main-color-light);
+    font-weight: 300;
+    margin: 0.5rem 2rem;
+    max-width: 65ch;
+}
+
+a, a:active {
+    text-decoration: none;
+    color: var(--main-color-light);
+}
+
+a.button {
+    display: block;
+    text-decoration: none;
+    font-style: inherit;
+    font-weight: 500;
+    font-size: inherit;
+    background-color: var(--accent-color-1);
+    color: var(--main-color-light);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    margin-top: 2rem;
+}
+
+main, section {
+    background: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider1, #slider2, #slider3, #slider4 {
+    position: absolute;
+    left: 0px;
+    width: 100vw;
+    height: 25vh;
+    z-index: -1;
+}
+
+#slider1 {
+    background-color: var(--accent-color-1);
+    top: 0px;
+    z-index: -1;
+}
+#slider2 {
+    background-color: var(--accent-color-2);
+    top: 25vh;
+    z-index: -2;
+}
+#slider3 {
+    background-color: var(--accent-color-3);
+    top: 50vh;
+    z-index: -3;
+}
+#slider4 {
+    background-color: var(--accent-color-4);
+    top: 75vh;
+    z-index: -4;
+}
+
+.animated-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 10ch;
+    height: 0.5rem;
+    margin-top: 4rem;
+    opacity: 0;
+}
+
+.bar-animation {
+    animation-name: grow-width;
+    animation-duration: 1.5s;
+    animation-delay: 0.1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#bar1 {
+    background-color: var(--accent-color-1);
+}
+#bar2 {
+    background-color: var(--accent-color-2);
+}
+#bar3 {
+    background-color: var(--accent-color-3);
+}
+#bar4 {
+    background-color: var(--accent-color-4);
+}
+
+@keyframes grow-width {
+    0% {width: 10ch; opacity: 0;}
+    50% { opacity: 1;}
+    100% {width: 30ch; opacity: 1;}
+
+  }
+
+@media only screen and (max-width: 800px) {
+    nav li {
+        padding: 0 1rem;
+        font-size: 16px;
+    }
+    body {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    main {
+        height: 150vh;
+    }
+}
