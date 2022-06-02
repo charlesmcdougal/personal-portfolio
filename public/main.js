@@ -3,6 +3,9 @@
 //select the form for triggering label animation
 const contactForm = document.querySelector("#message-form")
 
+//this is the counter after the message
+const messageCounter = document.querySelector(".message-counter")
+
 //check to see if the input already has values when the page loads (only in Mozilla?)
 //and apply the label animation class so there's no overlap in the input
 window.onload = () => {
@@ -18,7 +21,6 @@ window.onload = () => {
 contactForm.addEventListener("focusin", (e) => {
   if(e.target.nodeName === "INPUT" || e.target.nodeName === "TEXTAREA") {
     e.target.classList.remove("form-error")
-    e.target.classList.add("form-no-error")
     e.target.previousElementSibling.classList.add("label-animation")
   }
 })
@@ -28,18 +30,20 @@ contactForm.addEventListener("focusout", (e) => {
   if(e.target.value === '') {
     e.target.previousElementSibling.classList.remove("label-animation")
   }
+  if(e.target.value === '' && e.target.nodeName === "TEXTAREA") {
+    messageCounter.innerText = ''
+  }
 })
 
 //controls the counter in the textarea
 contactForm.addEventListener("input", (e) => {
   if(e.target.nodeName === "TEXTAREA") {
     const numOfChars = e.target.value.length
-    const counter = document.querySelector(".message-counter")
-    counter.innerText = `${numOfChars} / 800`
+    messageCounter.innerText = `${numOfChars} / 800`
     if(numOfChars > 4 && numOfChars < 800) {
-      counter.style.color = "rgba(255,255,255,0.8)"
+      messageCounter.style.color = "rgba(255,255,255,0.8)"
     } else {
-      counter.style.color = "rgba(255,200,200,0.8)"
+      messageCounter.style.color = "rgba(255,200,200,0.8)"
     }
   }
 })
@@ -97,17 +101,14 @@ contactForm.addEventListener("submit", async (e) => {
 
   // run some simple client-side auth here
   if(messageData.name.length < 1 || messageData.name.length >= 30) {
-    contactForm.querySelector("input[name=name]").classList.remove("form-no-error")
     contactForm.querySelector("input[name=name]").classList.add("form-error")
     isError = true
   }
   if(messageData.email.length < 1) {
-    contactForm.querySelector("input[name=email]").classList.remove("form-no-error")
     contactForm.querySelector("input[name=email]").classList.add("form-error")
     isError = true
   } 
   if(messageData.message.length < 5 || messageData.message.length >= 800) {
-    contactForm.querySelector("textarea[name=message]").classList.remove("form-no-error")
     contactForm.querySelector("textarea[name=message]").classList.add("form-error")
     isError = true
   }
@@ -131,6 +132,7 @@ contactForm.addEventListener("submit", async (e) => {
     showModal("Thank you!", "Thank you so much for reaching out to me! I will be in touch with you soon.")
     
     //clear the form
+    messageCounter.innerText = `0 / 800`
     const labeledElements = contactForm.querySelectorAll("input, textarea")
     labeledElements.forEach(element => {
       element.value = ''
@@ -140,6 +142,6 @@ contactForm.addEventListener("submit", async (e) => {
     //enable the button after a short delay
     setTimeout(() => {
       contactForm.querySelector("button[type=submit]").disabled = false
-    },2000)
+    }, 2000)
   }
 })

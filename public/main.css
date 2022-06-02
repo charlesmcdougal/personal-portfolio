@@ -107,7 +107,7 @@ a, a:active {
 }
 
 a:focus {
-    outline: 1px solid var(--accent-color-4);
+    outline: 1px solid var(--accent-color-3);
 }
 
 .red-hover::before, .orange-hover::before, .yellow-hover::before, .light-blue-hover::before {
@@ -246,6 +246,8 @@ main, section {
     font-weight: 300;
     font-family: inherit;
     color: var(--main-color-light);
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .contact-form input {
@@ -261,14 +263,14 @@ main, section {
     margin-bottom: 2.5rem;
 }
 
-.form-no-error {
+/* .form-no-error {
     border: 1px solid rgba(0,0,0,0.2);
     background-color: rgba(255, 255, 255, 0.3);
-}
+} */
 
 .form-error {
-    background: rgba(255, 200, 200, 0.3);
-    border: 1px solid var(--accent-color-1);
+    background: rgba(255, 200, 200, 0.3) !important; 
+    border: 1px solid var(--accent-color-1) !important;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
