@@ -8,22 +8,31 @@
 
     <title>Charles McDougal: Web Developer</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="animate-on-scroll.js" defer></script>
+    <script type="text/javascript" src="main.js" defer></script>
+    <script type="text/javascript" src="send-message.js" defer></script>
 </head>
-
 <body>
+    <div class="modal">
+        <div class="modal-box">
+            <p class="modal-title"> </p>
+            <p class="modal-message"> </p>
+        </div>
+    </div>
     <header>
         <nav>
             <ul>
                 <li><a class='orange-hover' href="https://linkedin.com/in/charlesmcdougal">LinkedIn</a></li>
                 <li><a class='yellow-hover' href="https://github.com/charlesmcdougal">GitHub</a></li>
-                <li><a class='light-blue-hover' href="mailto:charlesmcdougal@gmail.com">email</a></li>
+                <li><a id="trigger-scroll" class='light-blue-hover' href="#">contact</a></li>
             </ul>
         </nav>
     </header>
     <div class="wrapper">
         <section id="accordian">
-            <h1>My name is Charles.<br />I'm a web developer.</h1>
+            <h1>
+                My name is Charlie.<br />
+                I'm a web developer.
+            </h1>
             <div id="slider1"></div>
             <div id="slider2"></div>
             <div id="slider3"></div>
@@ -31,13 +40,21 @@
         </section>
         <main>
             <p>
-                I am a web developer with a focus on front-end development and a solid knowledge of the back-end as well. I coded the accordian scroll feature on this page from scratch. Take a peek at the .js code and .css to see how it was done. 
+                I'm a web developer with a focus on front-end development 
+                and a solid knowledge of the back-end as well. I coded the 
+                accordian scroll feature on this page from scratch. Take a 
+                peek at the .js code and .css to see how it was done. 
             </p>
             <p>
-                I work on the front-end using React or vanilla JavScript, CSS, and HTML. I work on the back-end using Node.js with Express and MongoDB, but I'm willing to learn just about any tool. 
+                I can develop SPAs with React or landing pages in vanilla 
+                JavScript, CSS, and HTML. I work on the back-end using 
+                Node.js with Express and MongoDB, but I'm willing to learn 
+                just about any tool. 
             </p>
             <p>
-                The links above currently point to my LinkedIn profile and my GitHub page. As I continue to develop this site, more and more of my work will be showcased here directly.
+                The links above currently point to my LinkedIn profile and 
+                my GitHub page. As I continue to develop this site, more 
+                and more of my work will be showcased here directly.
             </p>
             <a class="button" href="charles_mcdougal_resume_may_2022.pdf">my résumé</a>
             <div class="animated-bar">
@@ -47,7 +64,21 @@
                 <div id="bar4"></div>
             </div>
         </main>
+        <section id="contact">
+            <div class="contact-form">
+                <form id="message-form">
+                    <h2>Contact me</h2>
+                    <label for="name">Your name</label>
+                    <input class="form-no-error" type="text" name="name" />
+                    <label for="email">Your email</label>
+                    <input class="form-no-error" type="email" name="email" />
+                    <label for="message">Your message</label>
+                    <textarea class="form-no-error" type="text" name="message"></textarea>
+                    <button type="submit">Send a message</button>
+                    <a href="mailto:charlesmcdougal@gmail.com">...or email me.</a>
+                </form>
+            </div>
+        </section>
     </div>
 </body>
-
 </html>

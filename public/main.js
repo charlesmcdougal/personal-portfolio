@@ -67,3 +67,52 @@ screen.orientation.addEventListener("change", () => {
   clearTimeout(timeout)
   timeout = setTimeout(resizeCallback, delay)
 })
+
+//select the form for triggering label animation
+const form = document.querySelector("#contact")
+
+//check to see if the input already has values when the page loads (only in Mozilla?)
+//and apply the label animation class so there's no overlap in the input
+window.onload = () => {
+  const labeledElements = form.querySelectorAll("input, textarea")
+  labeledElements.forEach(element => {
+    if(element.value !== "") {
+      element.previousElementSibling.classList.add("label-animation")
+    }
+  })
+}
+
+//check what the form element is - only labels on inputs and text areas should animate
+form.addEventListener("focusin", (e) => {
+  if(e.target.nodeName === "INPUT" || e.target.nodeName === "TEXTAREA") {
+    e.target.classList.remove("form-error")
+    e.target.classList.add("form-no-error")
+    e.target.previousElementSibling.classList.add("label-animation")
+  }
+})
+
+//remove the label if the input is empty and loses focus
+form.addEventListener("focusout", (e) => {
+  if(e.target.value === '') {
+    e.target.previousElementSibling.classList.remove("label-animation")
+  }
+})
+
+//this code triggers the autoscroll to the contact form
+const scrollLink = document.querySelector("#trigger-scroll")
+
+scrollLink.addEventListener("click", (e) => {
+  e.preventDefault()
+  scrollContainer.scroll({
+    top: scrollContainer.scrollHeight*2,
+    left: 0,
+    behavior: "smooth"
+  })
+})
+
+//hide the modal if it's on screen 
+const modal = document.querySelector(".modal")
+
+modal.addEventListener("click", (e) => {
+  modal.style.display = 'none'
+})

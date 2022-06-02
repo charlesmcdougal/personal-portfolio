@@ -15,6 +15,38 @@ body {
     background-color: var(--main-color);
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.modal-box {
+    background-color: var(--main-color-light);
+    color: var(--main-color);
+    min-width: 15rem;
+    max-width: 20rem;
+    min-height: 10rem;
+    max-height: 20rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: var(--accent-color-1);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.modal-message {
+    color: var(--main-color);
+}
+
 .wrapper {
     height: 100vh;
     overflow-y: auto;
@@ -42,6 +74,7 @@ nav li {
     color: var(--main-color-light);
     padding: 0 5rem;
 }
+
 h1 {
     position: absolute;
     margin: 0px;
@@ -51,6 +84,12 @@ h1 {
     font-size: clamp(1rem, 8vw, 6rem);
     font-weight: 700;
     color: var(--main-color-light);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--main-color-light)
 }
 
 p {
@@ -63,7 +102,12 @@ p {
 a, a:active {
     position: relative;
     text-decoration: none;
+    outline: none;
     color: var(--main-color-light);
+}
+
+a:focus {
+    outline: 1px solid var(--accent-color-4);
 }
 
 .red-hover::before, .orange-hover::before, .yellow-hover::before, .light-blue-hover::before {
@@ -83,24 +127,12 @@ a, a:active {
     transform: scaleX(1);
 }
 
-.red-hover::before {
-    background-color: var(--accent-color-1);
-}
+.red-hover::before { background-color: var(--accent-color-1); }
+.orange-hover::before { background-color: var(--accent-color-2); }
+.yellow-hover::before { background-color: var(--accent-color-3); }
+.light-blue-hover::before { background-color: var(--accent-color-4);}
 
-.orange-hover::before {
-    background-color: var(--accent-color-2);
-}
-
-.yellow-hover::before {
-    background-color: var(--accent-color-3);
-}
-
-.light-blue-hover::before {
-    background-color: var(--accent-color-4);
-}
-
-a.button {
-    display: block;
+a.button, .contact-form button {
     text-decoration: none;
     font-style: inherit;
     font-weight: 500;
@@ -113,8 +145,12 @@ a.button {
     margin-top: 2rem;
 }
 
-a.button:hover {
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+a.button {
+    display: block;
+}
+
+a.button:hover, .contact-form button:hover {
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.3);
 }
 
 main, section {
@@ -166,33 +202,112 @@ main, section {
 }
 
 .bar-animation {
-    animation-name: grow-width;
-    animation-duration: 1.5s;
-    animation-delay: 0.1s;
-    animation-timing-function: ease-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation: 1.5s ease-out 0.1s 1 forwards grow-width;
 }
 
-#bar1 {
-    background-color: var(--accent-color-1);
+#bar1 { background-color: var(--accent-color-1); }
+#bar2 { background-color: var(--accent-color-2); }
+#bar3 { background-color: var(--accent-color-3); }
+#bar4 { background-color: var(--accent-color-4); }
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0rem;
+    background: rgba(0,0,0,0.1);
+    width: 100%;
 }
-#bar2 {
-    background-color: var(--accent-color-2);
+
+.contact-form label {
+    display: block;
+    height: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    font-size: 0.8rem;
+    transform: translate(0.7rem, 1.5rem);
+    pointer-events: none;
 }
-#bar3 {
-    background-color: var(--accent-color-3);
+
+.label-animation {
+    animation: 0.25s ease-in-out 0s 1 forwards grow-label;
 }
-#bar4 {
-    background-color: var(--accent-color-4);
+
+.label-animation-reverse {
+    animation: 0.25s ease-in-out 0s 1 forwards shink-label;
+}
+
+.contact-form input, .contact-form textarea {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-family: inherit;
+    color: var(--main-color-light);
+}
+
+.contact-form input {
+    width: 15rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form textarea {
+    width: 90vw;
+    max-width: 30rem;
+    height: 6rem;
+    resize: none;
+    margin-bottom: 2.5rem;
+}
+
+.form-no-error {
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-error {
+    background: rgba(255, 200, 200, 0.3);
+    border: 1px solid var(--accent-color-1);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: 1px solid var(--accent-color-4);
+}
+
+.contact-form button {
+    display: inline;
+    margin-right: 2rem;
+}
+
+.contact-form button:focus {
+    outline: 1px solid var(--accent-color-3);
+}
+
+.contact-form button:disabled {
+    background-color: rgb(210,210,210);
 }
 
 @keyframes grow-width {
     0% {width: 10ch; opacity: 0;}
     50% { opacity: 1;}
     100% {width: 30ch; opacity: 1;}
-
   }
+ 
+@keyframes grow-label {
+    0% {
+        transform: translate(0.7rem, 1.5rem);
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        transform: translate(0,0);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--main-color-light);
+    }
+}
 
 @media only screen and (max-width: 800px) {
     nav li {
