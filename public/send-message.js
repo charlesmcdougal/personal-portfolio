@@ -38,7 +38,7 @@ formToSubmit.addEventListener("submit", async (e) => {
     formToSubmit.querySelector("input[name=email]").classList.add("form-error")
     isError = true
   } 
-  if(messageData.message.length < 5 || messageData.message.length > 1000) {
+  if(messageData.message.length < 5 || messageData.message.length >= 800) {
     formToSubmit.querySelector("textarea[name=message]").classList.remove("form-no-error")
     formToSubmit.querySelector("textarea[name=message]").classList.add("form-error")
     isError = true

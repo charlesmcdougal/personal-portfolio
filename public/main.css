@@ -288,6 +288,18 @@ main, section {
     background-color: rgb(210,210,210);
 }
 
+.message-counter {
+    position: absolute;
+    font-size: 0.75rem;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    color: rgba(255,200,200,0.8);
+}
+
+.relative {
+    position: relative;
+}
+
 @keyframes grow-width {
     0% {width: 10ch; opacity: 0;}
     50% { opacity: 1;}
@@ -302,7 +314,7 @@ main, section {
         color: rgba(255, 255, 255, 0.7);
     }
     100% {
-        transform: translate(0,0);
+        transform: translate(0,-0.1rem);
         font-size: 1rem;
         font-weight: 500;
         color: var(--main-color-light);

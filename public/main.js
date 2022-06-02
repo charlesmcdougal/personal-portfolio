@@ -68,6 +68,8 @@ screen.orientation.addEventListener("change", () => {
   timeout = setTimeout(resizeCallback, delay)
 })
 
+//----LABEL AND FORM ANIMATION/EFFECT SCRIPTS----//
+
 //select the form for triggering label animation
 const form = document.querySelector("#contact")
 
@@ -95,6 +97,20 @@ form.addEventListener("focusin", (e) => {
 form.addEventListener("focusout", (e) => {
   if(e.target.value === '') {
     e.target.previousElementSibling.classList.remove("label-animation")
+  }
+})
+
+//controls the counter in the textarea
+form.addEventListener("input", (e) => {
+  if(e.target.nodeName === "TEXTAREA") {
+    const numOfChars = e.target.value.length
+    const counter = document.querySelector(".message-counter")
+    counter.innerText = `${numOfChars} / 800`
+    if(numOfChars > 4 && numOfChars < 800) {
+      counter.style.color = "rgba(255,255,255,0.8)"
+    } else {
+      counter.style.color = "rgba(255,200,200,0.8)"
+    }
   }
 })
 
