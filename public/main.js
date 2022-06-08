@@ -6,16 +6,72 @@ const contactForm = document.querySelector("#message-form")
 //this is the counter after the message
 const messageCounter = document.querySelector(".message-counter")
 
-//check to see if the input already has values when the page loads (only in Mozilla?)
-//and apply the label animation class so there's no overlap in the input
-window.onload = () => {
-  const labeledElements = contactForm.querySelectorAll("input, textarea")
-  labeledElements.forEach(element => {
-    if(element.value !== "") {
-      element.previousElementSibling.classList.add("label-animation")
-    }
-  })
+//pop up the modal - takes a string and an element to append
+const showModal = (title, message, bgColor) => {
+  document.querySelector(".modal-overlay").style.display = 'flex'
+  document.querySelector(".modal-title").innerText = title
+  document.querySelector(".modal-message").innerHTML = message
+  if(bgColor) {
+    console.log(bgColor)
+    document.querySelector(".modal-banner").style.backgroundColor = bgColor
+  }
 }
+
+//hide the modal if it's on screen 
+const modal = document.querySelector(".modal-overlay")
+modal.addEventListener("click", (e) => {
+  if(e.target.classList.contains("modal-close") || e.target.classList.contains("modal-overlay")) {
+    modal.style.display = "none"
+  }
+})
+
+//----MODAL MESSAGES----//
+const aboutMeListener = document.querySelector("main > ul")
+aboutMeListener.addEventListener("click", (e) => {
+  e.preventDefault()
+  let title = ""
+  let message = ""
+  let bgColor = ""
+  if(e.target.id === "skills") {
+    title = "My Development Skills"
+    bgColor = "var(--accent-color-1)"
+    message = `
+      <p><span class="bold">React</span> – Learned Redux, Router v6, Next.js, custom hooks, deployment, API
+      interaction through Udemy course, personal projects</p>
+      <p><span class="bold">Node.js</span> – Learned Express server, MongoDB, Mongoose, Postman and Jest (for
+      testing), socket.io through Udemy course</p>
+      <p><span class="bold">JavaScript</span> – Learned through university courses, Udemy courses, personal
+      projects; proficient with DOM manipulation, API interaction, JSON, concepts
+      like async/await, destructuring, closures, hoisting</p>
+      <p><span class="bold">HTML 5/CSS 3</span> – Clear understanding of the DOM, developer tools in
+      Firefox/Chrome, modern CSS practices: variables, media queries, flexbox, grid,
+      animation, accessibility</p>
+      <p><span class="bold">Digital Art</span> – Proficient with Photoshop and Illustrator, open-source tools
+      including InkScape and GIMP, mock-ups with Figma</p>
+    `
+    showModal(title, message, bgColor)
+  }
+  if(e.target.id === "education") {
+    title = "My Education"
+    bgColor = "var(--accent-color-2)"
+    message = `
+      <p><span class="bold">University of Maine</span>, Orono, Maine 2008<br />
+      Graduated with Bachelor of Arts in New Media</p>
+      <p><span class="bold">Udemy: The Complete Node.js Developer Course (3rd Edition)</span> January 2022</p>
+      <p><span class="bold">Udemy: React - The Complete Guide</span> June 2022</p>
+     `
+     showModal(title, message, bgColor)
+  }
+  if(e.target.id === "interests") {
+    title = "My Interests and Hobbies"
+    bgColor = "var(--accent-color-4)"
+    message = `
+      <p>typography and design, computer games, origami, squash, 
+      fitness, cooking, mountain biking, photography, making music</p>
+    `
+    showModal(title, message, bgColor)
+  }
+})
 
 //check what the form element is - only labels on inputs and text areas should animate
 contactForm.addEventListener("focusin", (e) => {
@@ -61,23 +117,20 @@ scrollLink.addEventListener("click", (e) => {
   })
 })
 
-//hide the modal if it's on screen 
-const modal = document.querySelector(".modal")
-
-modal.addEventListener("click", (e) => {
-  modal.style.display = 'none'
-})
-
 //-------------------------------------------//
 //----CODE THAT HANDLES THE CONTACT ME FORM--//
 //-------------------------------------------//
 const dbUrl = "https://mcdougal-resume-default-rtdb.firebaseio.com/"
 
-//pop up the modal if there's an error
-const showModal = (title, message) => {
-  document.querySelector(".modal").style.display = 'flex'
-  document.querySelector(".modal-title").innerText = title
-  document.querySelector(".modal-message").innerText = message
+//check to see if the input already has values when the page loads (only in Mozilla?)
+//and apply the label animation class so there's no overlap in the input
+window.onload = () => {
+  const labeledElements = contactForm.querySelectorAll("input, textarea")
+  labeledElements.forEach(element => {
+    if(element.value !== "") {
+      element.previousElementSibling.classList.add("label-animation")
+    }
+  })
 }
 
 contactForm.addEventListener("submit", async (e) => {
@@ -90,7 +143,7 @@ contactForm.addEventListener("submit", async (e) => {
   contactForm.querySelector("button[type=submit]").disabled = true
 
   //build an object with key value pairs from the form from all inputs and textareas
-  for(i=0; i < e.target.length; i++) {
+  for(let i=0; i < e.target.length; i++) {
     if(e.target[i].nodeName === "INPUT" || e.target[i].nodeName === "TEXTAREA") {
       messageData = {
         ...messageData,
@@ -125,11 +178,17 @@ contactForm.addEventListener("submit", async (e) => {
     },
   })
   if(!response.ok) {
-    showModal("Connection Error", `There was an error communicating with the server. Please make sure the form is filled out correctly, or contact me with the email link.`)
+    const errorTitle = "Connection Error"
+    const errorMessage = `<p>There was an error communicating with the server. Please make sure the form is filled out correctly, or <a href="mailto:charlesmcdougal@gmail.com">contact me</a>.</p>`
+    const bgColor = "var(--accent-color-1)"
+    showModal(errorTitle, errorMessage, bgColor)
     //enable the button in case they want to try again
     contactForm.querySelector("button[type=submit]").disabled = false
   } else {
-    showModal("Thank you!", "Thank you so much for reaching out to me! I will be in touch with you soon.")
+    const successTitle = "Thank you!" 
+    const successMessage = `<p>Thank you so much for reaching out to me! I will be in touch with you soon.</p>`
+    const bgColor = "var(--accent-color-4)"
+    showModal(successTitle, successMessage, bgColor)
     
     //clear the form
     messageCounter.innerText = `0 / 800`

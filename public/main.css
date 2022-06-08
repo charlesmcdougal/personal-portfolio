@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 
+/* DOM ELEMENT STYLES */
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -15,64 +16,54 @@ body {
     background-color: var(--main-color);
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    align-items: center;
+main, section {
+    background: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 0;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 1000;
+    align-items: center;
 }
 
-.modal-box {
-    background-color: var(--main-color-light);
-    color: var(--main-color);
-    min-width: 15rem;
-    max-width: 20rem;
-    min-height: 10rem;
-    max-height: 20rem;
-    border-radius: 10px;
-    padding: 1.5rem;
-}
-
-.modal-title {
-    color: var(--accent-color-1);
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.modal-message {
-    color: var(--main-color);
-}
-
-.wrapper {
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    perspective: 10px;
+main p {
+    color: var(--main-color-light);
+    font-weight: 300;
+    margin: 0.5rem 2rem;
+    max-width: 65ch;
+    line-height: 1.6;
+    font-kerning: normal;
 }
 
 nav {
     position: fixed;
-    width: 100%;
+    width: calc(100% - 17px); /* nav exists out of the scroll wrapper */
     height: 60px;
     z-index: 20;
 }
 
-nav ul {
+nav ul, main ul {
     text-align: center;
     list-style-type: none;
-    margin: 20px 0px;
     padding: 0px;
 }
 
-nav li {
+nav ul { margin: 20px 0px; }
+main ul { margin: 10px 0px; }
+
+nav li, main li {
     display: inline;
     font-weight: 500;
     color: var(--main-color-light);
-    padding: 0 5rem;
+}
+
+nav li { padding: 0 5rem; }
+.list-divider { padding: 2rem; }
+
+h1, h2 {
+    font-weight: 700;
+    color: var(--main-color-light);
 }
 
 h1 {
@@ -82,21 +73,18 @@ h1 {
     transform:translateY(-50%);
     text-align: center;
     font-size: clamp(1rem, 8vw, 6rem);
-    font-weight: 700;
-    color: var(--main-color-light);
 }
 
-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--main-color-light)
+h2 { 
+    margin: 0;
+    font-size: 2rem; 
 }
 
-p {
+h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: var(--main-color-light);
-    font-weight: 300;
-    margin: 0.5rem 2rem;
-    max-width: 65ch;
 }
 
 a, a:active {
@@ -106,31 +94,16 @@ a, a:active {
     color: var(--main-color-light);
 }
 
+.bold { font-weight: 500; }
+
+.modal-container p a {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
 a:focus {
     outline: 1px solid var(--accent-color-3);
 }
-
-.red-hover::before, .orange-hover::before, .yellow-hover::before, .light-blue-hover::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 6px;
-    bottom: -5px;
-    left: 0;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .2s ease-in-out;
-}
-
-.red-hover:hover::before, .orange-hover:hover::before, .yellow-hover:hover::before, .light-blue-hover:hover::before{
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-.red-hover::before { background-color: var(--accent-color-1); }
-.orange-hover::before { background-color: var(--accent-color-2); }
-.yellow-hover::before { background-color: var(--accent-color-3); }
-.light-blue-hover::before { background-color: var(--accent-color-4);}
 
 a.button, .contact-form button {
     text-decoration: none;
@@ -145,70 +118,117 @@ a.button, .contact-form button {
     margin-top: 2rem;
 }
 
-a.button {
-    display: block;
-}
+a.button { display: block; }
 
 a.button:hover, .contact-form button:hover {
     box-shadow: inset 0 0 8px rgba(255,255,255,0.3);
 }
 
-main, section {
-    background: none;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+/* wraps everything below the header in a box to take over the scroll */
+.wrapper {
     height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+/* styles for the modal overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.modal-container {
+    background-color: var(--main-color-light);
+    color: var(--main-color);
+    border-radius: 10px;
+}
+
+.modal-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    color: var(--main-color-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 0.5rem;
+}
+
+.modal-banner img {
+    pointer-events: none;
+    height: 1rem;
+    width: auto;
+}
+
+.modal-close {
+    cursor: pointer;
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    /* background-color: var(--accent-color-1); */
 }
 
-#slider1, #slider2, #slider3, #slider4 {
-    position: absolute;
-    left: 0px;
-    width: 100vw;
-    height: 25vh;
-    z-index: -1;
+.modal-message {
+    color: var(--main-color);
+    min-width: 15rem;
+    max-width: 50ch;
+    min-height: 10rem;
+    max-height: 30rem;
+    overflow-y: auto;
+    padding: 0 2rem 2rem 2rem;
 }
 
-#slider1 {
-    background-color: var(--accent-color-1);
-    top: 0px;
-    z-index: -1;
-}
-#slider2 {
-    background-color: var(--accent-color-2);
-    top: 25vh;
-    z-index: -2;
-}
-#slider3 {
-    background-color: var(--accent-color-3);
-    top: 50vh;
-    z-index: -3;
-}
-#slider4 {
-    background-color: var(--accent-color-4);
-    top: 75vh;
-    z-index: -4;
-}
-
-.animated-bar {
+.project-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 10ch;
-    height: 0.5rem;
-    margin-top: 4rem;
-    opacity: 0;
+    margin: 6rem 0;
+    width: calc(100% - 4rem);
+    max-width: 70rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    column-gap: 4rem;
+    row-gap: 4rem;
 }
 
-.bar-animation {
-    animation: 1.5s ease-out 0.1s 1 forwards grow-width;
+.grid-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color-light);
 }
 
-#bar1 { background-color: var(--accent-color-1); }
-#bar2 { background-color: var(--accent-color-2); }
-#bar3 { background-color: var(--accent-color-3); }
-#bar4 { background-color: var(--accent-color-4); }
+.grid-card img {
+    width: calc(100% + 20px);
+    transform: translate(-10px, 0);
+    height: 260px;
+    object-fit: cover;
+    object-position: 50% 0;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.grid-card-banner {
+    padding: 0.5rem;
+    color: var(--main-color-light);
+    background-color: var(--accent-color-1);
+}
+
+.grid-card-content {
+    padding: 1rem;
+}
 
 .contact-form {
     display: flex;
@@ -263,11 +283,6 @@ main, section {
     margin-bottom: 2.5rem;
 }
 
-/* .form-no-error {
-    border: 1px solid rgba(0,0,0,0.2);
-    background-color: rgba(255, 255, 255, 0.3);
-} */
-
 .form-error {
     background: rgba(255, 200, 200, 0.3) !important; 
     border: 1px solid var(--accent-color-1) !important;
@@ -293,21 +308,91 @@ main, section {
 .message-counter {
     position: absolute;
     font-size: 0.75rem;
-    bottom: -1.5rem;
-    right: -1.5rem;
+    bottom: -1.7rem;
+    right: 0rem;
     color: rgba(255,200,200,0.8);
 }
 
-.relative {
-    position: relative;
+.relative { position: relative; }
+
+#slider1, #slider2, #slider3, #slider4 {
+    position: absolute;
+    left: 0px;
+    width: 100vw;
+    height: 25vh;
+    z-index: -1;
 }
 
+#slider1 {
+    background-color: var(--accent-color-1);
+    top: 0px;
+    z-index: -1;
+}
+#slider2 {
+    background-color: var(--accent-color-2);
+    top: 25vh;
+    z-index: -2;
+}
+#slider3 {
+    background-color: var(--accent-color-3);
+    top: 50vh;
+    z-index: -3;
+}
+#slider4 {
+    background-color: var(--accent-color-4);
+    top: 75vh;
+    z-index: -4;
+}
+
+.animated-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 10ch;
+    height: 0.5rem;
+    margin-top: 4rem;
+    opacity: 0;
+}
+
+.bar-animation {
+    animation: 1.5s ease-out 0.1s 1 forwards grow-width;
+}
+
+#bar1 { background-color: var(--accent-color-1); }
+#bar2 { background-color: var(--accent-color-2); }
+#bar3 { background-color: var(--accent-color-3); }
+#bar4 { background-color: var(--accent-color-4); }
+
+.red-hover::before, .orange-hover::before, .yellow-hover::before, .light-blue-hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    bottom: -5px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .2s ease-in-out;
+}
+
+.red-hover:hover::before, .orange-hover:hover::before, .yellow-hover:hover::before, .light-blue-hover:hover::before{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.red-hover::before { background-color: var(--accent-color-1); }
+.orange-hover::before { background-color: var(--accent-color-2); }
+.yellow-hover::before { background-color: var(--accent-color-3); }
+.light-blue-hover::before { background-color: var(--accent-color-4);}
+
+
+/* animation for color bar */
 @keyframes grow-width {
     0% {width: 10ch; opacity: 0;}
     50% { opacity: 1;}
     100% {width: 30ch; opacity: 1;}
   }
- 
+
+/* animation for form label text */
 @keyframes grow-label {
     0% {
         transform: translate(0.7rem, 1.5rem);
@@ -323,18 +408,21 @@ main, section {
     }
 }
 
+/* mobile screens */
 @media only screen and (max-width: 800px) {
     nav li {
         padding: 0 1rem;
         font-size: 16px;
     }
-    body {
-        font-size: 16px;
-    }
+    main li { display: block; }
+    .list-divider { display: none; }
+    body { font-size: 16px; }
 }
 
+/* adjust the height of the main content if
+   z-height is short (e.g. for landscape phones) */
 @media only screen and (max-height: 600px) {
     main {
-        height: 150vh;
+        min-height: 150vh;
     }
 }

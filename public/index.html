@@ -12,10 +12,13 @@
     <script type="text/javascript" src="accordian-animation.js" defer></script>
 </head>
 <body>
-    <div class="modal">
-        <div class="modal-box">
-            <p class="modal-title"> </p>
-            <p class="modal-message"> </p>
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-banner">
+                <div class="modal-title"></div>
+                <div class="modal-close"><img src="assets/closewhite.png" alt="close" /></div>
+            </div>
+            <div class="modal-message"></div>
         </div>
     </div>
     <header>
@@ -30,7 +33,7 @@
     <div class="wrapper">
         <section id="accordian">
             <h1>
-                My name is Charlie.<br />
+                My name is Charles.<br />
                 I'm a web developer.
             </h1>
             <div id="slider1"></div>
@@ -39,24 +42,32 @@
             <div id="slider4"></div>
         </section>
         <main>
-            <p>
-                I'm a web developer with a focus on front-end development 
-                and a solid knowledge of the back-end as well. I coded the 
-                accordian scroll feature on this page from scratch. Take a 
-                peek at the .js code and .css to see how it was done. 
+            <h2>About me</h2>
+            <ul>
+                <li><a class="about-link red-hover" id="skills" href="#">skills</a></li>
+                <li class="list-divider">|</li>
+                <li><a class="about-link orange-hover" id="education" href="#">education</a></li>
+                <li class="list-divider">|</li>
+                <li><a class="about-link light-blue-hover" id="interests" href="#">interests</a></li>
+            </ul>  
+            <p class="main-text">
+                I'm a frond-end developer with a focus on clean, scalable 
+                designs. I take mock-ups from the UI/UX team and put them 
+                into action, or work hand in hand with them to create 
+                beautiful, user-friendly sites.
             </p>
-            <p>
+            <p class="main-text">
                 I can develop SPAs with React or landing pages in vanilla 
-                JavScript, CSS, and HTML. I work on the back-end using 
-                Node.js with Express and MongoDB, but I'm willing to learn 
-                just about any tool. 
+                JavScript, CSS, and HTML. I work on the back-end to create 
+                RESTful APIS using Node.js with Express and MongoDB, but 
+                I'm willing to learn just about any tool. 
             </p>
-            <p>
+            <p class="main-text">
                 The links above currently point to my LinkedIn profile and 
                 my GitHub page. As I continue to develop this site, more 
                 and more of my work will be showcased here directly.
-            </p>
-            <a class="button" href="charles_mcdougal_resume_may_2022.pdf">my résumé</a>
+            </p>  
+            <a class="button" href="charles_mcdougal_resume_june_2022.pdf">my résumé</a>
             <div class="animated-bar">
                 <div id="bar1"></div>
                 <div id="bar2"></div>
@@ -69,12 +80,12 @@
                 <form id="message-form">
                     <h2>Contact me</h2>
                     <label for="name">Your name</label>
-                    <input class="form-no-error" type="text" name="name" />
+                    <input class="form-no-error" type="text" name="name" id="name" />
                     <label for="email">Your email</label>
-                    <input class="form-no-error" type="email" name="email" />
+                    <input class="form-no-error" type="email" name="email" id="email" />
                     <div class="relative">
                         <label for="message">Your message</label>
-                        <textarea class="form-no-error" type="text" name="message"></textarea>
+                        <textarea class="form-no-error" type="text" name="message" id="message"></textarea>
                         <p class="message-counter"></p>
                     </div>
                     <button type="submit">Send a message</button>

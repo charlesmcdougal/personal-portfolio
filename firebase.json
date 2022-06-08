@@ -5,7 +5,9 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "public/test.*"
+      "public/test.js",
+      "public/test.html",
+      "public/test.css"
     ]
   }
 }
