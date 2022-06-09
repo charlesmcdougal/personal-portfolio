@@ -1,0 +1,100 @@
+.accent-bg-1 { background-color: var(--accent-color-1); }
+.accent-bg-2 { background-color: var(--accent-color-2); }
+.accent-bg-3 { background-color: var(--accent-color-3); }
+.accent-bg-4 { background-color: var(--accent-color-4); }
+.main-color { color: var(--main-color); }
+
+.project-grid {
+  display: grid;
+  grid-auto-flow: dense;
+  margin: 6rem 0;
+  width: calc(100% - 4rem);
+  max-width: 70rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-rows: auto;
+  gap: 4rem;
+}
+
+.span2 {
+  grid-row: span 2;
+}
+
+.grid-card {
+  align-self: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color-light);
+  border-radius: 1rem;
+  box-shadow:
+    1px 1px 1.1px rgba(0, 0, 0, 0.021),
+    2.3px 2.5px 2.7px rgba(0, 0, 0, 0.029),
+    4.4px 4.6px 5.1px rgba(0, 0, 0, 0.035),
+    7.8px 8.3px 9.2px rgba(0, 0, 0, 0.042),
+    14.6px 15.5px 17.1px rgba(0, 0, 0, 0.053),
+    35px 37px 41px rgba(0, 0, 0, 0.08)
+  ;
+}
+
+.grid-card-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  padding: 0 1.5rem;
+  color: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.grid-card-banner div {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid-card-banner img {
+  display: block;
+  padding-left: 0.5rem;
+  width: 1.2rem;
+  height: auto;
+}
+
+.grid-card-content {
+  margin: 0;
+  padding: 0;
+  padding: 1.5rem;
+}
+
+.grid-card-content p {
+  font-size: 16px;
+  margin: 0 0 0.5rem 0;
+  color: var(--main-color);
+}
+
+.card-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 1rem;
+  justify-content: space-around;
+  justify-items: center;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.card-tags span {
+  text-align: center;
+  background-color: var(--main-color-mid);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--main-color);
+  padding: 0.4rem;
+  border-radius: 2rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .project-grid {
+    width: calc(100% - 1rem);
+      gap: 2rem;
+  }
+}

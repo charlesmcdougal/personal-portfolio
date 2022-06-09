@@ -104,17 +104,19 @@ contactForm.addEventListener("input", (e) => {
   }
 })
 
-//this code triggers the autoscroll to the contact form
+//this code triggers the autoscroll to the appropriate section
 const scrollLink = document.querySelector("#trigger-scroll")
 const scrollContainer = document.querySelector(".wrapper")
 
 scrollLink.addEventListener("click", (e) => {
   e.preventDefault()
-  scrollContainer.scroll({
-    top: scrollContainer.scrollHeight*2,
-    left: 0,
-    behavior: "smooth"
-  })
+  // let scrollTo = 0
+  if(e.target.text === "projects") {
+    document.querySelector("#projects").scrollIntoView({ behavior: 'smooth', block: 'start'})
+  }
+  if(e.target.text === "contact") {
+    document.querySelector("#contact").scrollIntoView({ behavior: 'smooth', block: 'start'})
+  }
 })
 
 //-------------------------------------------//

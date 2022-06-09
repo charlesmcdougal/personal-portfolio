@@ -8,6 +8,7 @@
 
     <title>Charles McDougal: Web Developer</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="projects.css">
     <script type="text/javascript" src="main.js" defer></script>
     <script type="text/javascript" src="accordian-animation.js" defer></script>
 </head>
@@ -23,10 +24,10 @@
     </div>
     <header>
         <nav>
-            <ul>
-                <li><a class='orange-hover' href="https://linkedin.com/in/charlesmcdougal">LinkedIn</a></li>
+            <ul id="trigger-scroll">
+                <li><a class='orange-hover' href="#">projects</a></li>
                 <li><a class='yellow-hover' href="https://github.com/charlesmcdougal">GitHub</a></li>
-                <li><a id="trigger-scroll" class='light-blue-hover' href="#">contact</a></li>
+                <li><a class='light-blue-hover' href="#">contact</a></li>
             </ul>
         </nav>
     </header>
@@ -75,6 +76,110 @@
                 <div id="bar4"></div>
             </div>
         </main>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+              <div class="grid-card">
+                <div class="grid-card-banner accent-bg-1">
+                  <h3>Weather App</h3>
+                  <div>
+                    <!-- <a id="weatherApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+                    <a href="http://mcdougal-weather-app.herokuapp.com/">
+                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
+                    </a>
+                    <a href="http://github.com/charlesmcdougal/weatherapp">
+                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="grid-card-content">
+                  <p>This app's back-end is built in Node.js and Express. It accesses two different APIs, mapbox.com and weatherstack.com, to get coordinates from a string place name and weather from the coordinates.</p>
+                </div>
+                <div class="card-tags">
+                  <span>#Node.js</span>
+                  <span>#Express</span>
+                  <span>#RESTful</span>
+                </div>
+              </div>
+              <div class="grid-card">
+                <div class="grid-card-banner accent-bg-2">
+                  <h3>Chat App</h3>
+                  <div>
+                    <!-- <a id="chatApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+                    <a href="https://mcdougal-chatapp.herokuapp.com/">
+                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
+                    </a>
+                    <a href="https://github.com/charlesmcdougal/nodejs-course-chatapp">
+                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="grid-card-content">
+                  <p>This app's back-end is built in Node.js and Express. Passing text between the server and client is handled with socket.io.</p>
+                  <p>The app actually supports more than one chat room at the same time.</p>
+                </div>
+                <div class="card-tags">
+                  <span>#Node.js</span>
+                  <span>#Express</span>
+                  <span>#socket.io</span>
+                </div>
+              </div>
+              <div class="grid-card span2">
+                <div class="grid-card-banner accent-bg-3">
+                  <h3>Taskmanager API</h3>
+                  <div>
+                    <a href="https://github.com/charlesmcdougal/taskmanager-api">
+                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="grid-card-content">
+                  <p>The code is a full API for CRUD operations with user accounts. It stores multiple tokens to allow logging in with multiple devices simultaneously.</p>
+                  <p>There is also a CRUD interface for managing tasks associated with a user.</p>
+                  <p>Automated testing is done using Jest.</p>
+                  <p>There is currently no front-end developed for this, but I intend to use parts of it with the chat app in the near future.</p>
+                </div>
+                <div class="card-tags">
+                  <span>#MongoDB</span>
+                  <span>#Node.js</span>
+                  <span>#Express</span>
+                  <span>#mongoose</span>
+                  <span>#RESTful</span>
+                  <span>#Jest</span>
+                </div>
+              </div>
+              <div class="grid-card">
+                <div class="grid-card-banner accent-bg-4">
+                  <h3>Quote App</h3>
+                  <div>
+                    <!-- <a id="quoteApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+                    <a href="https://react-router-practice-98034.web.app/quotes">
+                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
+                    </a>
+                    <a href="http://github.com/charlesmcdougal/weatherapp">
+                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="grid-card-content">
+                  <p>This SPA was built in React using React Router 6. The backend runs on firebase.</p>
+                  <p>There is also a comment section unique to every quote.</p>
+                  <p></p>
+                </div>
+                <div class="card-tags">
+                  <span>#React</span>
+                  <span>#Router</span>
+                  <span>#firebase</span>
+                </div>
+              </div>
+            </div>
+          </section>
         <section id="contact">
             <div class="contact-form">
                 <form id="message-form">
