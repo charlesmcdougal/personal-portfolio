@@ -1,6 +1,7 @@
 const triggerAnimations = (() => {
   const scrollContainer = document.querySelector("#accordian");
   const elementsToCollapse = document.querySelectorAll("#accordian > div");
+  const cardList = document.querySelectorAll(".project-grid > div");
   let initViewportHeight = 0;
   let lastKnownScrollPosition = 0;
   let ticking = false;
@@ -63,13 +64,19 @@ const triggerAnimations = (() => {
       lastKnownScrollPosition >
         projectsYPosition - document.querySelector("#projects").offsetHeight / 2
     ) {
-      const cardList = document.querySelectorAll(".project-grid > div");
       cardList.forEach((element, val) => {
         setTimeout(() => {
           element.classList.add("card-animation");
         }, 200 * val);
       });
       projectsAnimationTriggered = true;
+    }
+    // console.log(lastKnownScrollPosition);
+    if (projectsAnimationTriggered && lastKnownScrollPosition < 10) {
+      cardList.forEach((element) => {
+        element.classList.remove("card-animation");
+      });
+      projectsAnimationTriggered = false;
     }
   });
 
