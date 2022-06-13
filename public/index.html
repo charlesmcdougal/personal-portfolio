@@ -1,204 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="The Portfolio Site of Charles McDougal">
-    <meta name="author" content="Charles McDougal">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="The Portfolio Site of Charles McDougal" />
+    <meta name="author" content="Charles McDougal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Charles McDougal: Web Developer</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="projects.css">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="projects.css" />
     <script type="text/javascript" src="main.js" defer></script>
-    <script type="text/javascript" src="accordian-animation.js" defer></script>
-</head>
-<body>
+    <script type="text/javascript" src="animations.js" defer></script>
+  </head>
+  <body>
     <div class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-banner">
-                <div class="modal-title"></div>
-                <div class="modal-close"><img src="assets/closewhite.png" alt="close" /></div>
-            </div>
-            <div class="modal-message"></div>
+      <div class="modal-container">
+        <div class="modal-banner">
+          <div class="modal-title"></div>
+          <div class="modal-close">
+            <img src="assets/closewhite.png" alt="close" />
+          </div>
         </div>
+        <div class="modal-message"></div>
+      </div>
     </div>
-    <header>
-        <nav>
-            <ul id="trigger-scroll">
-                <li><a class='orange-hover' href="#">projects</a></li>
-                <li><a class='yellow-hover' href="https://github.com/charlesmcdougal">GitHub</a></li>
-                <li><a class='light-blue-hover' href="#">contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="wrapper">
-        <section id="accordian">
-            <h1>
-                My name is Charles.<br />
-                I'm a web developer.
-            </h1>
-            <div id="slider1"></div>
-            <div id="slider2"></div>
-            <div id="slider3"></div>
-            <div id="slider4"></div>
-        </section>
-        <main>
-            <h2>About me</h2>
-            <ul>
-                <li><a class="about-link orange-hover" id="education" href="#">education</a></li>
-                <li class="list-divider">|</li>
-                <li><a class="about-link red-hover" id="skills" href="#">skills</a></li>
-                <li class="list-divider">|</li>
-                <li><a class="about-link light-blue-hover" id="interests" href="#">interests</a></li>
-            </ul>  
-            <p class="main-text">
-                I'm a frond-end developer with a focus on clean, scalable 
-                designs. I take mock-ups from the UI/UX team and put them 
-                into action, or work hand in hand with them to create 
-                beautiful, user-friendly sites.
-            </p>
-            <p class="main-text">
-                I can develop SPAs with React or landing pages in vanilla 
-                JavScript, CSS, and HTML. I work on the back-end to create 
-                RESTful APIS using Node.js with Express and MongoDB, but 
-                I'm willing to learn just about any tool. 
-            </p>
-            <p class="main-text">
-                I wrote the code for this portfolio site from scratch. Right 
-                now it showcases projects that I developed as part of my 
-                Udemy courses, but I will add other things that I am working 
-                on to it soon.
-            </p>
-            <a class="button" href="charles_mcdougal_resume_june_2022.pdf">my résumé</a>
-            <div class="animated-bar">
-                <div id="bar1"></div>
-                <div id="bar2"></div>
-                <div id="bar3"></div>
-                <div id="bar4"></div>
-            </div>
-        </main>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
-              <div class="grid-card">
-                <div class="grid-card-banner accent-bg-1">
-                  <h3>Weather App</h3>
-                  <div>
-                    <!-- <a id="weatherApp" href="#">
-                      <img src="assets/image-xxl.png" alt="image logo" />
-                    </a> -->
-                    <a href="http://mcdougal-weather-app.herokuapp.com/">
-                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
-                    </a>
-                    <a href="http://github.com/charlesmcdougal/weatherapp">
-                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
-                    </a>
-                  </div>
-                </div>
-                <div class="grid-card-content">
-                  <p>This app's back-end is built in Node.js and Express. It accesses two different APIs, mapbox.com and weatherstack.com, to get coordinates from a string place name and weather from the coordinates.</p>
-                </div>
-                <div class="card-tags">
-                  <span>#Node.js</span>
-                  <span>#Express</span>
-                  <span>#RESTful</span>
-                </div>
-              </div>
-              <div class="grid-card">
-                <div class="grid-card-banner accent-bg-2">
-                  <h3>Chat App</h3>
-                  <div>
-                    <!-- <a id="chatApp" href="#">
-                      <img src="assets/image-xxl.png" alt="image logo" />
-                    </a> -->
-                    <a href="https://mcdougal-chatapp.herokuapp.com/">
-                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
-                    </a>
-                    <a href="https://github.com/charlesmcdougal/nodejs-course-chatapp">
-                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
-                    </a>
-                  </div>
-                </div>
-                <div class="grid-card-content">
-                  <p>This app's back-end is built in Node.js and Express. Passing text between the server and client is handled with socket.io.</p>
-                  <p>The app actually supports more than one chat room at the same time.</p>
-                </div>
-                <div class="card-tags">
-                  <span>#Node.js</span>
-                  <span>#Express</span>
-                  <span>#socket.io</span>
-                </div>
-              </div>
-              <div class="grid-card span2">
-                <div class="grid-card-banner accent-bg-3">
-                  <h3>Taskmanager API</h3>
-                  <div>
-                    <a href="https://github.com/charlesmcdougal/taskmanager-api">
-                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
-                    </a>
-                  </div>
-                </div>
-                <div class="grid-card-content">
-                  <p>The code is a full API for CRUD operations with user accounts. It stores multiple tokens to allow logging in with multiple devices simultaneously.</p>
-                  <p>There is also a CRUD interface for managing tasks associated with a user.</p>
-                  <p>Automated testing is done using Jest.</p>
-                  <p>There is currently no front-end developed for this, but I intend to use parts of it with the chat app in the near future.</p>
-                </div>
-                <div class="card-tags">
-                  <span>#MongoDB</span>
-                  <span>#Node.js</span>
-                  <span>#Express</span>
-                  <span>#mongoose</span>
-                  <span>#RESTful</span>
-                  <span>#Jest</span>
-                </div>
-              </div>
-              <div class="grid-card">
-                <div class="grid-card-banner accent-bg-4">
-                  <h3>Quote App</h3>
-                  <div>
-                    <!-- <a id="quoteApp" href="#">
-                      <img src="assets/image-xxl.png" alt="image logo" />
-                    </a> -->
-                    <a href="https://react-router-practice-98034.web.app/quotes">
-                      <img src="assets/external-link-2-xxl.png" alt="external link logo" />
-                    </a>
-                    <a href="http://github.com/charlesmcdougal/weatherapp">
-                      <img src="assets/GitHub-Mark-Light-64px.png" alt="github logo" />
-                    </a>
-                  </div>
-                </div>
-                <div class="grid-card-content">
-                  <p>This SPA was built in React using React Router 6. The backend runs on firebase.</p>
-                  <p>There is also a comment section unique to every quote.</p>
-                  <p></p>
-                </div>
-                <div class="card-tags">
-                  <span>#React</span>
-                  <span>#Router</span>
-                  <span>#firebase</span>
-                </div>
-              </div>
-            </div>
-          </section>
-        <section id="contact">
-            <div class="contact-form">
-                <form id="message-form">
-                    <h2>Contact me</h2>
-                    <label for="name">Your name</label>
-                    <input class="form-no-error" type="text" name="name" id="name" />
-                    <label for="email">Your email</label>
-                    <input class="form-no-error" type="email" name="email" id="email" />
-                    <div class="relative">
-                        <label for="message">Your message</label>
-                        <textarea class="form-no-error" type="text" name="message" id="message"></textarea>
-                        <p class="message-counter"></p>
-                    </div>
-                    <button type="submit">Send a message</button>
-                    <a href="mailto:charlesmcdougal@gmail.com">...or email me.</a>
-                </form>
-            </div>
-        </section>
+    <nav>
+      <ul id="trigger-scroll">
+        <li><a class="orange-hover" href="#">projects</a></li>
+        <li>
+          <a class="yellow-hover" href="https://github.com/charlesmcdougal">
+            GitHub
+          </a>
+        </li>
+        <li><a class="light-blue-hover" href="#">contact</a></li>
+      </ul>
+    </nav>
+    <div id="accordian">
+      <h1>
+        My name is Charles.<br />
+        I'm a web developer.
+      </h1>
+      <div id="slider1"></div>
+      <div id="slider2"></div>
+      <div id="slider3"></div>
+      <div id="slider4"></div>
     </div>
-</body>
+    <main>
+      <h2>About me</h2>
+      <ul>
+        <li>
+          <a class="about-link orange-hover" id="education" href="#"
+            >education</a
+          >
+        </li>
+        <li class="list-divider">|</li>
+        <li>
+          <a class="about-link red-hover" id="skills" href="#">skills</a>
+        </li>
+        <li class="list-divider">|</li>
+        <li>
+          <a class="about-link light-blue-hover" id="interests" href="#"
+            >interests</a
+          >
+        </li>
+      </ul>
+      <p>
+        I'm a frond-end developer with a focus on clean, scalable designs. I
+        take mock-ups from the UI/UX team and put them into action, or work hand
+        in hand with them to create beautiful, user-friendly sites.
+      </p>
+      <p>
+        I can develop SPAs with React or landing pages in vanilla JavScript,
+        CSS, and HTML. I work on the back-end to create RESTful APIS using
+        Node.js with Express and MongoDB, but I'm willing to learn just about
+        any tool.
+      </p>
+      <p>
+        I wrote the code for this portfolio site from scratch. Right now it
+        showcases projects that I developed as part of my Udemy courses, but I
+        will add other things that I am working on to it soon.
+      </p>
+      <a class="button" href="charles_mcdougal_resume_june_2022.pdf"
+        >my résumé</a
+      >
+      <div class="animated-bar">
+        <div id="bar1"></div>
+        <div id="bar2"></div>
+        <div id="bar3"></div>
+        <div id="bar4"></div>
+      </div>
+    </main>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="grid-card">
+          <div class="grid-card-banner accent-bg-1">
+            <h3>Weather App</h3>
+            <div>
+              <!-- <a id="weatherApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+              <a href="http://mcdougal-weather-app.herokuapp.com/">
+                <img
+                  src="assets/external-link-2-xxl.png"
+                  alt="external link logo"
+                />
+              </a>
+              <a href="http://github.com/charlesmcdougal/weatherapp">
+                <img
+                  src="assets/GitHub-Mark-Light-64px.png"
+                  alt="github logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="grid-card-content">
+            <p>
+              This app's back-end is built in Node.js and Express. It accesses
+              two different APIs, mapbox.com and weatherstack.com, to get
+              coordinates from a string place name and weather from the
+              coordinates.
+            </p>
+          </div>
+          <div class="card-tags">
+            <span>#Node.js</span>
+            <span>#Express</span>
+            <span>#RESTful</span>
+          </div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-banner accent-bg-2">
+            <h3>Chat App</h3>
+            <div>
+              <!-- <a id="chatApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+              <a href="https://mcdougal-chatapp.herokuapp.com/">
+                <img
+                  src="assets/external-link-2-xxl.png"
+                  alt="external link logo"
+                />
+              </a>
+              <a
+                href="https://github.com/charlesmcdougal/nodejs-course-chatapp"
+              >
+                <img
+                  src="assets/GitHub-Mark-Light-64px.png"
+                  alt="github logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="grid-card-content">
+            <p>
+              This app's back-end is built in Node.js and Express. Passing text
+              between the server and client is handled with socket.io.
+            </p>
+            <p>
+              The app actually supports more than one chat room at the same
+              time.
+            </p>
+          </div>
+          <div class="card-tags">
+            <span>#Node.js</span>
+            <span>#Express</span>
+            <span>#socket.io</span>
+          </div>
+        </div>
+        <div class="grid-card span2">
+          <div class="grid-card-banner accent-bg-3">
+            <h3>Taskmanager API</h3>
+            <div>
+              <a href="https://github.com/charlesmcdougal/taskmanager-api">
+                <img
+                  src="assets/GitHub-Mark-Light-64px.png"
+                  alt="github logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="grid-card-content">
+            <p>
+              The code is a full API for CRUD operations with user accounts. It
+              stores multiple tokens to allow logging in with multiple devices
+              simultaneously.
+            </p>
+            <p>
+              There is also a CRUD interface for managing tasks associated with
+              a user.
+            </p>
+            <p>Automated testing is done using Jest.</p>
+            <p>
+              There is currently no front-end developed for this, but I intend
+              to use parts of it with the chat app in the near future.
+            </p>
+          </div>
+          <div class="card-tags">
+            <span>#MongoDB</span>
+            <span>#Node.js</span>
+            <span>#Express</span>
+            <span>#mongoose</span>
+            <span>#RESTful</span>
+            <span>#Jest</span>
+          </div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-banner accent-bg-4">
+            <h3>Quote App</h3>
+            <div>
+              <!-- <a id="quoteApp" href="#">
+                      <img src="assets/image-xxl.png" alt="image logo" />
+                    </a> -->
+              <a href="https://react-router-practice-98034.web.app/quotes">
+                <img
+                  src="assets/external-link-2-xxl.png"
+                  alt="external link logo"
+                />
+              </a>
+              <a href="http://github.com/charlesmcdougal/weatherapp">
+                <img
+                  src="assets/GitHub-Mark-Light-64px.png"
+                  alt="github logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="grid-card-content">
+            <p>
+              This SPA was built in React using React Router 6. The backend runs
+              on firebase.
+            </p>
+            <p>There is also a comment section unique to every quote.</p>
+            <p></p>
+          </div>
+          <div class="card-tags">
+            <span>#React</span>
+            <span>#Router</span>
+            <span>#firebase</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="contact-form">
+        <form id="message-form">
+          <h2>Contact me</h2>
+          <label for="name">Your name</label>
+          <input class="form-no-error" type="text" name="name" id="name" />
+          <label for="email">Your email</label>
+          <input class="form-no-error" type="email" name="email" id="email" />
+          <div class="relative">
+            <label for="message">Your message</label>
+            <textarea
+              class="form-no-error"
+              type="text"
+              name="message"
+              id="message"
+            ></textarea>
+            <p class="message-counter"></p>
+          </div>
+          <button type="submit">Send a message</button>
+          <a href="mailto:charlesmcdougal@gmail.com">...or email me.</a>
+        </form>
+      </div>
+    </section>
+  </body>
 </html>

@@ -1,13 +1,23 @@
-.accent-bg-1 { background-color: var(--accent-color-1); }
-.accent-bg-2 { background-color: var(--accent-color-2); }
-.accent-bg-3 { background-color: var(--accent-color-3); }
-.accent-bg-4 { background-color: var(--accent-color-4); }
-.main-color { color: var(--main-color); }
+.accent-bg-1 {
+  background-color: var(--accent-color-1);
+}
+.accent-bg-2 {
+  background-color: var(--accent-color-2);
+}
+.accent-bg-3 {
+  background-color: var(--accent-color-3);
+}
+.accent-bg-4 {
+  background-color: var(--accent-color-4);
+}
+.main-color {
+  color: var(--main-color);
+}
 
 .project-grid {
   display: grid;
   grid-auto-flow: dense;
-  margin: 6rem 0;
+  margin: 2rem 0;
   width: calc(100% - 4rem);
   max-width: 70rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -24,16 +34,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(60px);
   background-color: var(--main-color-light);
   border-radius: 1rem;
-  box-shadow:
-    1px 1px 1.1px rgba(0, 0, 0, 0.021),
+  box-shadow: 1px 1px 1.1px rgba(0, 0, 0, 0.021),
     2.3px 2.5px 2.7px rgba(0, 0, 0, 0.029),
     4.4px 4.6px 5.1px rgba(0, 0, 0, 0.035),
     7.8px 8.3px 9.2px rgba(0, 0, 0, 0.042),
     14.6px 15.5px 17.1px rgba(0, 0, 0, 0.053),
-    35px 37px 41px rgba(0, 0, 0, 0.08)
-  ;
+    35px 37px 41px rgba(0, 0, 0, 0.08);
 }
 
 .grid-card-banner {
@@ -44,8 +54,8 @@
   height: 3rem;
   padding: 0 1.5rem;
   color: white;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
 }
 
 .grid-card-banner div {
@@ -92,9 +102,24 @@
   border-radius: 2rem;
 }
 
+.card-animation {
+  animation: 0.5s ease-in-out 0s 1 forwards card-shift;
+}
+
+@keyframes card-shift {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .project-grid {
     width: calc(100% - 1rem);
-      gap: 2rem;
+    gap: 2rem;
   }
 }
