@@ -1,17 +1,9 @@
 const triggerAnimations = (() => {
-  //selectors for the accordian effect
-  const scrollContainer = document.querySelector("#accordian");
-  const elementsToCollapse = document.querySelectorAll("#accordian > div");
-
-  //init vars for the accordian effect
-  let count = elementsToCollapse.length;
-  let scrollModifier = 1 / count;
-  let initViewportHeight = 0;
   let lastKnownScrollPosition = 0;
-  let totalHeight = 0;
-  let ticking = false;
+  let initViewportHeight = 0;
 
   //selectors for the different page sections
+  const viewportContainer = document.querySelector("#accordian");
   const aboutSection = document.querySelector("#about");
   const projectsSection = document.querySelector("#projects");
   const contactSection = document.querySelector("#contact");
@@ -27,36 +19,14 @@ const triggerAnimations = (() => {
 
   //wait till everything has loaded before calculating the offset height
   window.onload = function () {
-    initViewportHeight = scrollContainer.offsetHeight;
+    initViewportHeight = viewportContainer.offsetHeight;
     aboutYPosition = aboutSection.offsetTop;
     projectsYPosition = projectsSection.offsetTop;
     contactYPosition = contactSection.offsetTop;
   };
 
-  const accordianElements = (scrollPos) => {
-    //the height needs to be recalculated to avoid bugs with screen resizing, esp. on mobile
-    totalHeight = scrollContainer.offsetHeight;
-
-    elementsToCollapse.forEach((element, val) => {
-      //use Math.ceil to round up to nearest whole number - gets rid of gaps on desktop browsers that round fractional values down
-      element.style.height =
-        Math.ceil(
-          totalHeight / count + scrollPos * (1 - scrollModifier * (val + 1))
-        ) + "px";
-    });
-  };
-
   document.addEventListener("scroll", () => {
     lastKnownScrollPosition = window.scrollY;
-
-    //this code may reduce the number of times the scroll event is calculated - should be less CPU intensive
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        accordianElements(lastKnownScrollPosition);
-        ticking = false;
-      });
-      ticking = true;
-    }
 
     //this triggers the color bar animation in the second section
     if (
@@ -151,28 +121,5 @@ const triggerAnimations = (() => {
         .classList.remove("orange-scroll-anim");
       sectionScrolledTo = "contact";
     }
-  });
-
-  let timeout = false; // holder for timeout id
-  let delay = 150; // delay after event is "complete" to run callback
-
-  // window.resize callback function
-  const resizeCallback = () => {
-    //run the resize function
-    accordianElements(lastKnownScrollPosition);
-  };
-
-  // update accordian position if window resizes
-  window.addEventListener("resize", () => {
-    // clear the timeout
-    clearTimeout(timeout);
-    // start timing for event "completion"
-    timeout = setTimeout(resizeCallback, delay);
-  });
-
-  //update accordian position if phone orientation changes
-  screen.orientation.addEventListener("change", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(resizeCallback, delay);
   });
 })();

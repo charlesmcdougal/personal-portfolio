@@ -20,15 +20,13 @@ On the main page, at the top, you'll also need the following html:
 ```
     <div id="accordian">
       <h1>
-        My name is Charles.<br />
-        I'm a web developer.
+        (masthead text goes here)
       </h1>
-      <div id="slider1"></div>
-      <div id="slider2"></div>
-      <div id="slider3"></div>
-      <div id="slider4"></div>
     </div>
 ```
+
+You can add or remove horizontal bars by going into accordian.js and adding a color to the array accordianBars array. It's applied
+as a CSS style, so you can use whatever format you like: rgb, hsl, hex, or a variable from another CSS file, as I did.s
 
 ### licence information
 
