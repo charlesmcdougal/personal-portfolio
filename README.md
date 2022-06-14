@@ -6,6 +6,8 @@ Just about all of the code here was written from scratch. I didn't want to use a
 
 ### recent updates
 
+I moved the code for the accordian effect to its own file. I also set it up so it dynamically generates the bars based on an array of color values. The more colors added to the array, the more bars are generated. It should be pretty much drag-and-drop now. Instructions for using it can be found below.
+
 Navigation links are now underlined based on which section the page is scrolled to. I've also removed the wrapper around the page for more consistent scrolling on various devices and to return the scrollbar to the document level. This also means that the page can still be scrolled even with a modal overlay covering everything.
 
 ### using the accordian
