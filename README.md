@@ -1,6 +1,8 @@
 # personal-portfolio
 
 Thank you for checking out my personal portfolio.
+ 
+You can visit the working site here: [mcdougal-resume.web.app](https://mcdougal-resume.web.app).
 
 Just about all of the code here was written from scratch. I didn't want to use any 3rd-party code for this as a sort of personal challenge to myself but also to learn how everything works on a deeper level. There are still a few things I intend to add, such as a modal pop-up gallery so I can add pictures to the projects section.
 
