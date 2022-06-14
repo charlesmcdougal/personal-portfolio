@@ -1,15 +1,25 @@
 const triggerAnimations = (() => {
+  //selectors for the accordian effect
   const scrollContainer = document.querySelector("#accordian");
   const elementsToCollapse = document.querySelectorAll("#accordian > div");
-  const cardList = document.querySelectorAll(".project-grid > div");
-  let initViewportHeight = 0;
-  let lastKnownScrollPosition = 0;
-  let ticking = false;
+
+  //init vars for the accordian effect
   let count = elementsToCollapse.length;
   let scrollModifier = 1 / count;
+  let initViewportHeight = 0;
+  let lastKnownScrollPosition = 0;
   let totalHeight = 0;
+  let ticking = false;
 
+  //selectors for the different page sections
+  const aboutSection = document.querySelector("#about");
+  const projectsSection = document.querySelector("#projects");
+  const contactSection = document.querySelector("#contact");
+  const cardList = document.querySelectorAll(".project-grid > div");
+  let sectionScrolledTo = "";
+  let aboutYPosition = 0;
   let projectsYPosition = 0;
+  let contactYPosition = 0;
 
   //so it won't attempt to add the same class multiple times
   let barAnimationTriggered = false;
@@ -18,9 +28,9 @@ const triggerAnimations = (() => {
   //wait till everything has loaded before calculating the offset height
   window.onload = function () {
     initViewportHeight = scrollContainer.offsetHeight;
-    console.log(scrollContainer.offsetHeight);
-    projectsYPosition = document.querySelector("#projects").offsetTop;
-    console.log(projectsYPosition);
+    aboutYPosition = aboutSection.offsetTop;
+    projectsYPosition = projectsSection.offsetTop;
+    contactYPosition = contactSection.offsetTop;
   };
 
   const accordianElements = (scrollPos) => {
@@ -62,7 +72,7 @@ const triggerAnimations = (() => {
     if (
       !projectsAnimationTriggered &&
       lastKnownScrollPosition >
-        projectsYPosition - document.querySelector("#projects").offsetHeight / 2
+        projectsYPosition - projectsSection.offsetHeight / 2
     ) {
       cardList.forEach((element, val) => {
         setTimeout(() => {
@@ -71,12 +81,75 @@ const triggerAnimations = (() => {
       });
       projectsAnimationTriggered = true;
     }
-    // console.log(lastKnownScrollPosition);
     if (projectsAnimationTriggered && lastKnownScrollPosition < 10) {
       cardList.forEach((element) => {
         element.classList.remove("card-animation");
       });
       projectsAnimationTriggered = false;
+    }
+
+    //adds nav decoration when scrolling to a section
+    if (
+      sectionScrolledTo !== "main" &&
+      lastKnownScrollPosition < aboutYPosition - 300
+    ) {
+      document
+        .querySelector(".orange-scroll")
+        .classList.remove("orange-scroll-anim");
+      document
+        .querySelector(".yellow-scroll")
+        .classList.remove("yellow-scroll-anim");
+      document
+        .querySelector(".light-blue-scroll")
+        .classList.remove("light-blue-scroll-anim");
+      sectionScrolledTo = "main";
+    }
+    if (
+      sectionScrolledTo !== "about" &&
+      lastKnownScrollPosition > aboutYPosition - 300 &&
+      lastKnownScrollPosition < projectsYPosition - 300
+    ) {
+      document
+        .querySelector(".orange-scroll")
+        .classList.add("orange-scroll-anim");
+      document
+        .querySelector(".yellow-scroll")
+        .classList.remove("yellow-scroll-anim");
+      document
+        .querySelector(".light-blue-scroll")
+        .classList.remove("light-blue-scroll-anim");
+      sectionScrolledTo = "about";
+    }
+    if (
+      sectionScrolledTo !== "projects" &&
+      lastKnownScrollPosition > projectsYPosition - 300 &&
+      lastKnownScrollPosition < contactYPosition - 300
+    ) {
+      document
+        .querySelector(".yellow-scroll")
+        .classList.add("yellow-scroll-anim");
+      document
+        .querySelector(".orange-scroll")
+        .classList.remove("orange-scroll-anim");
+      document
+        .querySelector(".light-blue-scroll")
+        .classList.remove("light-blue-scroll-anim");
+      sectionScrolledTo = "projects";
+    }
+    if (
+      sectionScrolledTo !== "contact" &&
+      lastKnownScrollPosition > contactYPosition - 300
+    ) {
+      document
+        .querySelector(".light-blue-scroll")
+        .classList.add("light-blue-scroll-anim");
+      document
+        .querySelector(".yellow-scroll")
+        .classList.remove("yellow-scroll-anim");
+      document
+        .querySelector(".orange-scroll")
+        .classList.remove("orange-scroll-anim");
+      sectionScrolledTo = "contact";
     }
   });
 
@@ -89,7 +162,7 @@ const triggerAnimations = (() => {
     accordianElements(lastKnownScrollPosition);
   };
 
-  // window.resize event listener
+  // update accordian position if window resizes
   window.addEventListener("resize", () => {
     // clear the timeout
     clearTimeout(timeout);
@@ -97,7 +170,7 @@ const triggerAnimations = (() => {
     timeout = setTimeout(resizeCallback, delay);
   });
 
-  //check to see of the phone's orientation has changed and resize the elements
+  //update accordian position if phone orientation changes
   screen.orientation.addEventListener("change", () => {
     clearTimeout(timeout);
     timeout = setTimeout(resizeCallback, delay);

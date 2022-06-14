@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&Arvo:wght@400&display=swap");
 
 /* DOM ELEMENT STYLES */
 body {
@@ -52,7 +52,7 @@ section {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 #accordian {
@@ -101,6 +101,7 @@ main ul {
 
 nav li,
 main li {
+  position: relative;
   display: inline;
   font-weight: 500;
   color: var(--main-color-light);
@@ -116,6 +117,7 @@ nav li {
 
 h1,
 h2 {
+  /* font-family: "Arvo", sans-serif; */
   font-weight: 700;
   color: var(--main-color-light);
 }
@@ -161,7 +163,7 @@ a:active {
 }
 
 a:focus {
-  outline: 1px solid var(--accent-color-3);
+  outline: 1px dotted var(--accent-color-3);
 }
 
 a.button,
@@ -404,9 +406,13 @@ a.button:hover,
 }
 
 .red-hover::before,
+.red-scroll,
 .orange-hover::before,
+.orange-scroll,
 .yellow-hover::before,
-.light-blue-hover::before {
+.yellow-scroll,
+.light-blue-hover::before,
+.light-blue-scroll {
   content: "";
   position: absolute;
   width: 100%;
@@ -418,25 +424,37 @@ a.button:hover,
   transition: transform 0.2s ease-in-out;
 }
 
+.red-scroll-anim,
+.orange-scroll-anim,
+.yellow-scroll-anim,
+.light-blue-scroll-anim {
+  animation: 0.2s ease-in-out 0s 1 forwards nav-decoration;
+}
+
+.red-hover::before,
+.red-scroll {
+  background-color: var(--accent-color-1);
+}
+.orange-hover::before,
+.orange-scroll {
+  background-color: var(--accent-color-2);
+}
+.yellow-hover::before,
+.yellow-scroll {
+  background-color: var(--accent-color-3);
+}
+.light-blue-hover::before,
+.light-blue-scroll {
+  background-color: var(--accent-color-4);
+}
+
+/* this is for the mouse-over of the links only */
 .red-hover:hover::before,
 .orange-hover:hover::before,
 .yellow-hover:hover::before,
 .light-blue-hover:hover::before {
   transform-origin: left;
   transform: scaleX(1);
-}
-
-.red-hover::before {
-  background-color: var(--accent-color-1);
-}
-.orange-hover::before {
-  background-color: var(--accent-color-2);
-}
-.yellow-hover::before {
-  background-color: var(--accent-color-3);
-}
-.light-blue-hover::before {
-  background-color: var(--accent-color-4);
 }
 
 /* animation for color bar */
@@ -451,6 +469,16 @@ a.button:hover,
   100% {
     width: 30ch;
     opacity: 1;
+  }
+}
+
+/* animation for bars under links on scroll */
+@keyframes nav-decoration {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
 
@@ -485,8 +513,8 @@ a.button:hover,
   }
 }
 
-/* adjust the height of the main content if
-   z-height is short (e.g. for landscape phones) */
+/* adjust the min-height of the main content if
+   screen height is short (e.g. for landscape phones) */
 @media only screen and (max-height: 600px) {
   main {
     min-height: 150vh;

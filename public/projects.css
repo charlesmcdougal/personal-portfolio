@@ -19,7 +19,7 @@
   grid-auto-flow: dense;
   margin: 2rem 0;
   width: calc(100% - 4rem);
-  max-width: 70rem;
+  max-width: 74rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   grid-template-rows: auto;
   gap: 4rem;
@@ -78,7 +78,8 @@
 
 .grid-card-content p {
   font-size: 16px;
-  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+  margin: 0 0 0.7rem 0;
   color: var(--main-color);
 }
 

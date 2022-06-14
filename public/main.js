@@ -12,7 +12,6 @@ const showModal = (title, message, bgColor) => {
   document.querySelector(".modal-title").innerText = title;
   document.querySelector(".modal-message").innerHTML = message;
   if (bgColor) {
-    console.log(bgColor);
     document.querySelector(".modal-banner").style.backgroundColor = bgColor;
   }
 };
@@ -113,7 +112,11 @@ const scrollContainer = document.querySelector(".wrapper");
 
 scrollLink.addEventListener("click", (e) => {
   e.preventDefault();
-  // let scrollTo = 0
+  if (e.target.text === "about") {
+    document
+      .querySelector("#about")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   if (e.target.text === "projects") {
     document
       .querySelector("#projects")
