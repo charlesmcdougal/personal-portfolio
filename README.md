@@ -17,7 +17,7 @@ resized and put in other page sections, but it's still too buggy. If you want to
 
 On the main page, at the top, you'll also need the following html:
 
-```
+```html
     <div id="accordian">
       <h1>
         (masthead text goes here)
