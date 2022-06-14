@@ -1,0 +1,21 @@
+#accordian {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* the style for the text in the middle of the 
+   accordian. Style it to your liking  */
+h1 {
+  position: absolute;
+  margin: 0px;
+  top: 50vh;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: clamp(1rem, 8vw, 6rem);
+}
