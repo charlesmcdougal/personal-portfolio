@@ -1,6 +1,35 @@
 # personal-portfolio
+
 Thank you for checking out my personal portfolio.
 
-Everything I did here was coded by me. I didn't want to use any 3rd-party code for this as a sort of personal challenge to myself. There are still lots of things I want to change and lots of things that are probably going to be buggy, but I wanted to get it out there for people to see.
+Just about all of the code here was written from scratch. I didn't want to use any 3rd-party code for this as a sort of personal challenge to myself but also to learn how everything works on a deeper level. There are still a few things I intend to add, such as a modal pop-up gallery so I can add pictures to the projects section.
+
+### recent updates
+
+Navigation links are now underlined based on which section the page is scrolled to. I've also removed the wrapper around the page
+for more consistent scrolling on various devices and to return the scrollbar to the document level. This also means that the
+page can still be scrolled even with a modal overlay covering everything.
+
+### using the accordian
+
+The accordian effect can only be used on the top of a page and only at 100vh/vw. I've been working on another version that can be
+resized and put in other page sections, but it's still too buggy. If you want to use in on your page for whatever reason, then you'll need the accordian.js and accordian.css files.
+
+On the main page, at the top, you'll also need the following html:
+
+```
+    <div id="accordian">
+      <h1>
+        My name is Charles.<br />
+        I'm a web developer.
+      </h1>
+      <div id="slider1"></div>
+      <div id="slider2"></div>
+      <div id="slider3"></div>
+      <div id="slider4"></div>
+    </div>
+```
+
+### licence information
 
 This project is licenced under the MIT licence, which is shared in the main directory. Feel free to do what you'd like with the code, just remember to keep the licence with it.
