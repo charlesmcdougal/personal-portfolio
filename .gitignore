@@ -1,6 +1,7 @@
 # personal files
 public/charles_mcdougal_resume_may_2022.pdf
-test/
+.test/
+.gitignore
 
 # Logs
 logs
