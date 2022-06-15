@@ -16,13 +16,13 @@
 
 .project-grid {
   display: grid;
-  grid-auto-flow: dense;
+  /* grid-auto-flow: dense; */
   margin: 2rem 0;
   width: calc(100% - 4rem);
   max-width: 74rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   grid-template-rows: auto;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .span2 {
@@ -30,7 +30,7 @@
 }
 
 .grid-card {
-  align-self: start;
+  /* align-self: start; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -77,7 +77,7 @@
 }
 
 .grid-card-content p {
-  font-size: 16px;
+  font-size: 0.85rem;
   line-height: 1.5;
   margin: 0 0 0.7rem 0;
   color: var(--main-color);

@@ -7,8 +7,13 @@ const accordianAnimation = (() => {
     "var(--accent-color-4)",
   ];
 
+  //set the height of the container (value is 'vh')
+  //heights between 100 and 150 work well
+  const initHeight = 100;
+
   //selector for the accordian effect
   const accordianContainer = document.querySelector("#accordian");
+  accordianContainer.style.height = initHeight + "vh";
 
   //generate the bars
   accordianBars.forEach((element, val) => {
@@ -16,10 +21,10 @@ const accordianAnimation = (() => {
     newBar.style.position = "absolute";
     newBar.style.left = "0";
     newBar.style.width = "100vw";
-    newBar.style.height = 100 / accordianBars.length + "vh";
+    newBar.style.height = initHeight / accordianBars.length + "vh";
     newBar.style.zIndex = -1 - val;
     newBar.style.backgroundColor = element;
-    newBar.style.top = (100 / accordianBars.length) * val + "vh";
+    newBar.style.top = (initHeight / accordianBars.length) * val + "vh";
     accordianContainer.appendChild(newBar);
   });
 
@@ -29,14 +34,9 @@ const accordianAnimation = (() => {
   //init vars for the accordian effect
   let count = elementsToCollapse.length;
   let scrollModifier = 1 / count;
-  let initViewportHeight = 0;
   let lastKnownScrollPosition = 0;
   let totalHeight = 0;
   let ticking = false;
-
-  window.onload = function () {
-    initViewportHeight = accordianContainer.offsetHeight;
-  };
 
   //this function runs every time a scroll event is triggered
   const resizeElements = (scrollPos) => {
