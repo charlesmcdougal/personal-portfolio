@@ -8,6 +8,8 @@ const triggerAnimations = (() => {
   const projectsSection = document.querySelector("#projects");
   const contactSection = document.querySelector("#contact");
   const cardList = document.querySelectorAll(".project-grid > div");
+  const navBar = document.querySelector("nav");
+  let navBarIsColored = false;
   let sectionScrolledTo = "";
   let aboutYPosition = 0;
   let projectsYPosition = 0;
@@ -27,6 +29,17 @@ const triggerAnimations = (() => {
 
   document.addEventListener("scroll", () => {
     lastKnownScrollPosition = window.scrollY;
+
+    //this triggers the background on the navbar
+    if (!navBarIsColored && lastKnownScrollPosition > aboutYPosition) {
+      console.log(navBarIsColored);
+      navBar.style.backgroundColor = "var(--main-color)";
+      navBarIsColored = true;
+    }
+    if (navBarIsColored && lastKnownScrollPosition < aboutYPosition) {
+      navBar.style.backgroundColor = "transparent";
+      navBarIsColored = false;
+    }
 
     //this triggers the color bar animation in the second section
     if (

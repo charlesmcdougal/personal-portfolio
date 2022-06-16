@@ -108,7 +108,6 @@ contactForm.addEventListener("input", (e) => {
 
 //this code triggers the autoscroll to the appropriate section
 const scrollLink = document.querySelector("#trigger-scroll");
-const scrollContainer = document.querySelector(".wrapper");
 
 scrollLink.addEventListener("click", (e) => {
   e.preventDefault();
