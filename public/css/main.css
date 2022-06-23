@@ -10,30 +10,6 @@ body {
   font-weight: 300;
   margin: 0px;
   padding: 0px;
-  /* --main-color: hsl(0, 0%, 10%);
-  --shadow-color: hsl(217, 29%, 0%);
-  --main-color-light: white;
-  --main-color-mid: hsl(0, 0%, 85%);
-  --accent-color-1: hsl(0, 0%, 60%);
-  --accent-color-2: hsl(0, 0%, 40%);
-  --accent-color-3: hsl(0, 0%, 31%);
-  --accent-color-4: hsl(0, 0%, 20%); */
-  /* --main-color: #233d4d;
-    --shadow-color: hsl(217, 29%, 0%);
-    --main-color-light: rgb(247, 240, 235);
-    --main-color-mid: hsl(25, 45%, 85%);
-    --accent-color-1: #fe7f2d;
-    --accent-color-2: #fcca46;
-    --accent-color-3: #a1c181;
-    --accent-color-4: #619b8a; */
-  /* --main-color: #071e22;
-    --shadow-color: hsl(217, 29%, 0%);
-    --main-color-light: rgb(247, 240, 235);
-    --main-color-mid: hsl(25, 45%, 85%);
-    --accent-color-1: #ee2e31;
-    --accent-color-2: hsl(27, 60%, 67%);
-    --accent-color-3: #679289;
-    --accent-color-4: #1d7874; */
   --main-color: rgb(23, 40, 67);
   --shadow-color: hsl(217, 29%, 0%);
   --main-color-light: rgb(247, 240, 235);
@@ -55,7 +31,7 @@ section {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 main p {
