@@ -8,7 +8,7 @@ Just about all of the code here was written from scratch. I didn't want to use a
 
 ### recent updates
 
-The navbar now gets a background color so the text no longer collides when scrolling. I wasn't sure I wanted to do it, but as the pagae gets more crowded, there were too many instances where the navigation would interfere with other elements. I'd still like to find a more interesting way to move the nav out of the way.
+The navbar now gets a background color so the text no longer collides when scrolling. I wasn't sure I wanted to do it, but as the page gets more crowded, there were too many instances where the navigation would interfere with other elements. I'd still like to find a more visually interesting way to move the nav out of the way.
 
 I moved the code for the accordian effect to its own file. I also set it up so it dynamically generates the bars based on an array of color values. The more colors added to the array, the more bars are generated. It should be pretty much drag-and-drop now. Instructions for using it can be found below. Even the height is adjustable, though it works best between 100 and 150vh.
 
