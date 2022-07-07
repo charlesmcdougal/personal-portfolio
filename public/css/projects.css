@@ -44,6 +44,7 @@
     7.8px 8.3px 9.2px rgba(0, 0, 0, 0.042),
     14.6px 15.5px 17.1px rgba(0, 0, 0, 0.053),
     35px 37px 41px rgba(0, 0, 0, 0.08);
+  /* max-height: 30rem; */
 }
 
 .grid-card-banner {
@@ -61,6 +62,8 @@
 .grid-card-banner div {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  min-height: 3rem;
 }
 
 .grid-card-banner img {
@@ -73,7 +76,8 @@
 .grid-card-content {
   margin: 0;
   padding: 0;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  /* overflow: auto; */
 }
 
 .grid-card-content p {
@@ -90,7 +94,7 @@
   row-gap: 1rem;
   justify-content: space-around;
   justify-items: center;
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
 }
 
 .card-tags span {

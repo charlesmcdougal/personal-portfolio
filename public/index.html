@@ -99,6 +99,54 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="project-grid">
+        <div class="grid-card span2">
+          <div class="grid-card-banner accent-bg-4">
+            <h3>Fitness Timer (WIP)</h3>
+            <div>
+              <a href="timer/index.html">
+                <img
+                  src="assets/external-link-2-xxl.png"
+                  alt="external link logo"
+                />
+              </a>
+              <a href="http://github.com/charlesmcdougal/personal-portfolio">
+                <img
+                  src="assets/GitHub-Mark-Light-64px.png"
+                  alt="github logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="grid-card-content">
+            <p>
+              This will be a full-featured fitness routine app built in React.
+              It's a work-in-progress - the first part that I've built is the
+              actual timer, figuring that would be the most challenging. It
+              looks best in mobile, so I recommend using Chrome's or Firefox's
+              mobile view if you're on desktop.
+            </p>
+            <p>
+              The timer receives an array containing information about each
+              exercise in the routine and dynamically generates the inner and
+              outer rings. It runs using requestAnimationFrame and bases its
+              timing on the timestamp passed to the callback function, which
+              makes it fairly accurate. It also means that it will 'catch up' if
+              the computer can't keep up with the timer for whatever reason or
+              the user leaves the window.
+            </p>
+            <p>
+              It also only triggers the next requestAnimationFrame every 10th of
+              a second (at default 60hz), so it should be fairly CPU-friendly.
+            </p>
+          </div>
+          <div class="card-tags">
+            <span>#React</span>
+            <span>#Redux</span>
+            <span>#CSS</span>
+            <span>#JavaScript</span>
+            <span>#Router</span>
+          </div>
+        </div>
         <div class="grid-card">
           <div class="grid-card-banner accent-bg-1">
             <h3>Weather App</h3>
